@@ -36,11 +36,9 @@ const hasPriorityAndStatusProperties = (requestQuery) => {
 const hasPriorityProperty = (requestQuery) => {
   return requestQuery.priority !== undefined;
 };
-
 const hasStatusProperty = (requestQuery) => {
   return requestQuery.status !== undefined;
 };
-
 const hasCategoryAndStatus = (requestQuery) => {
   return (
     requestQuery.category !== undefined && requestQuery.status !== undefined
@@ -109,7 +107,6 @@ app.get("/todos/", async (request, response) => {
       }
 
       break;
-
     //scenario 5
     /** has  category and status  */
     case hasCategoryAndStatus(request.query):
@@ -177,7 +174,6 @@ app.get("/todos/", async (request, response) => {
         response.send("Invalid Todo Priority");
       }
       break;
-
     //scenario 1
     /**-------------has only status ------------ */
     case hasStatusProperty(request.query):
