@@ -25,8 +25,6 @@ const initializeDBandServer = async () => {
 };
 initializeDBandServer();
 
-//api 1
-
 const hasPriorityAndStatusProperties = (requestQuery) => {
   return (
     requestQuery.priority !== undefined && requestQuery.status !== undefined
@@ -133,7 +131,6 @@ app.get("/todos/", async (request, response) => {
       }
 
       break;
-
     //scenario 7
     /** has both category and priority */
     case hasCategoryAndPriority(request.query):
@@ -160,7 +157,6 @@ app.get("/todos/", async (request, response) => {
       }
 
       break;
-
     //scenario 2
     /**-------------- has only priority---------- */
     case hasPriorityProperty(request.query):
@@ -209,7 +205,6 @@ app.get("/todos/", async (request, response) => {
         response.send("Invalid Todo Category");
       }
       break;
-
     //default get all todos
     default:
       getTodosQuery = `select * from todo;`;
@@ -313,7 +308,6 @@ app.put("/todos/:todoId/", async (request, response) => {
         response.send("Invalid Todo Status");
       }
       break;
-
     //update priority
     case requestBody.priority !== undefined:
       if (priority === "HIGH" || priority === "LOW" || priority === "MEDIUM") {
@@ -390,7 +384,6 @@ app.delete("/todos/:todoId/", async (request, response) => {
     todo
   WHERE
     id = ${todoId};`;
-
   await database.run(deleteTodoQuery);
   response.send("Todo Deleted");
 });
