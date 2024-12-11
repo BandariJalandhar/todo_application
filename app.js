@@ -31,6 +31,7 @@ const hasPriorityAndStatusProperties = (requestQuery) => {
   );
 };
 
+
 const hasPriorityProperty = (requestQuery) => {
   return requestQuery.priority !== undefined;
 };
@@ -53,6 +54,7 @@ const hasSearchProperty = (requestQuery) => {
   return requestQuery.search_q !== undefined;
 };
 
+
 const hasCategoryProperty = (requestQuery) => {
   return requestQuery.category !== undefined;
 };
@@ -67,6 +69,7 @@ const outPutResult = (dbObject) => {
     dueDate: dbObject.due_date,
   };
 };
+
 
 app.get("/todos/", async (request, response) => {
   let data = null;
@@ -157,6 +160,7 @@ app.get("/todos/", async (request, response) => {
       }
 
       break;
+      
     //scenario 2
     /**-------------- has only priority---------- */
     case hasPriorityProperty(request.query):
